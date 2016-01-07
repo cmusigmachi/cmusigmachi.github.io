@@ -1,0 +1,74 @@
+<h1>Site Update Generator</h1>
+<h2>This is the form to generate new code for the Tech Chair</h2>
+<br>
+<br>
+
+<h2>Newly Initiated Class Student Names</h2>
+<br>
+<form id = "newBros">
+First name: 
+<input type="text" name="firstName">
+<br>
+Last name: 
+<input type="text" name="lastName">
+<br><input type="submit" value="Add Your Name"><br>
+</form>
+
+<h2>Newly Elected Exec Board Fill In</h2>
+<br>
+<form>
+<p> Name - Position: </p>
+<br>
+<p>Example: Zach Mansley - Risk Manager <input type="text" name="execNamePos"></p>
+<br>
+<p>Major: </p>
+<br>
+Example: Materials Science and Engineering <input type="text" name="execMajor">
+<br>
+<p>Year: </p>
+<br>
+<p>Example: Junior <input type="text" name="execYear"></p>
+<br>
+<p>Hometown: </p>
+<br>
+<p>Example: Ramsey, NJ <input type="text" name="execHomeTown"></p>
+<br>
+<p>Favorite Thing: </p>
+<br>
+<p>Example: Skiing <input type="text" name="execFavThing"></p>
+<br>
+<p>Picture - URL TO THE DIRECT PICTURE: </p>
+<br>
+<p>Example:  <a href="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/10888454_10205958165652913_5529334987543704365_n.jpg?oh=bb053ec3030d9876b5f5e7e3d90346a7&oe=55252047&__gda__=1428387362_969bc91c673710e141f51f65a715e285">https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/10888454_10205958165652913_5529334987543704365_n.jpg?oh=bb053ec3030d9876b5f5e7e3d90346a7&oe=55252047&__gda__=1428387362_969bc91c673710e141f51f65a715e285</a> <input type="text" name="execPicLink"> </p>
+<br>
+</form>
+
+<h1>Freshly Generated Code: </h1>
+	<div id="responseArea"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$( "#newBros" ).submit(function( event ) {
+	  var firstName = $( "input:first" ).val() 
+	  var lastName = $( "input:second" ).val() 
+	 
+      event.preventDefault();
+  
+     	$.ajax({
+          url:"updateSite/updateNewBros?first=" + firstName + "&last=" + lastName,
+          type:'GET',
+          success: function(data){
+            console.log(data)
+          }
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
